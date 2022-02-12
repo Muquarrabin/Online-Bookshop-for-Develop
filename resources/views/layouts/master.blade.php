@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>@yield('title', 'Bookshop - Home')</title>
+    <title>@yield('title', 'CTG Book Shop - Home')</title>
     <!-- Favicon icon -->
     <link rel="icon" href="{{asset('/')}}assets/img/favicon.png" type="image/x-icon">
     <!-- Font Awesome -->
@@ -24,7 +24,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="headings">
-                    <h3><a href="{{route('bookshop.home')}}" class="text-secondary"><b class="text-danger">Book</b> Shop</a></h3>
+                    <h3><a href="{{route('bookshop.home')}}" class="text-secondary"><b class="text-danger">CTG</b> Book Shop</a></h3>
                 </div>
             </div>
             <div class="col-md-4">
