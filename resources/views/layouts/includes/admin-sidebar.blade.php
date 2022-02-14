@@ -5,7 +5,7 @@
         <div class="sidebar-brand-icon">
             <img src="{{asset('/')}}admin/img/logo.png" width="30" alt="">
         </div>
-        <div class="sidebar-brand-text mx-3">Book shop</div>
+        <div class="sidebar-brand-text mx-3">CTG Book Shop</div>
     </a>
 
     <!-- Divider -->
@@ -73,12 +73,7 @@
             <i class="fas fa-fw fa-comments"></i>
             <span>Reviews</span></a>
     </li>
-    <!-- Nav Item - Charts -->
-    <li class="nav-item">
-        <a class="nav-link" href="#">
-            <i class="fas fa-fw fa-envelope"></i>
-            <span>Messages</span></a>
-    </li>
+
 
     <!-- Nav Item - Tables -->
     <li class="nav-item active">

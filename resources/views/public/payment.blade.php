@@ -24,7 +24,7 @@
                     @csrf
                     <input type="hidden" name="cart_total" value="{{Cart::total()}}">
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_7xVvmxzKaoeFzuBZZ18WdwKy00bmfx80CA"
+                            data-key="pk_test_51KSNTBBsBdaI2A0YopUaiRdocldslKa3UYhhm9XT8H2KeCDiC2pdAvDInJXhX8CpwQqsJDS3pPyJhwOs1cJY4NFR00c5eCyZ5S"
                             data-amount=""
                             data-name="Bookshop"
                             data-description="Bookshop payment"
