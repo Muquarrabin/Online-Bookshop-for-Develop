@@ -35,7 +35,7 @@ class CheckoutController extends Controller
 
     public function pay(Request $request)
     {
-        Stripe::setApiKey('sk_test_2DCNbttQJFTfjupPjhseb3mc00Jm3oE7L6');
+        Stripe::setApiKey('sk_test_51KSNTBBsBdaI2A0Y0Yg7T00pxWqmQXGihqjLuyESlaMGRZAAW64rrgeRmBu7r3n71wFw3DC0gfkNwiaoP3aRc8Dx00wzjf5GFv');
         $token = $request->stripeToken;
         $total = $request->cart_total;
 

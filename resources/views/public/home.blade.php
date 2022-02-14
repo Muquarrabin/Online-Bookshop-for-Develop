@@ -13,7 +13,7 @@
                 <div class="carousel-item active">
                     <div class="slider-img slider-bg-1"></div>
                     <div class="carousel-caption">
-                        <h2>First slide level</h2>
+                        <h2>Welcome CTG Book Shop</h2>
                         <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
                             Officiis molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>
                     </div>
@@ -21,7 +21,7 @@
                 <div class="carousel-item">
                     <div class="slider-img slider-bg-2"></div>
                     <div class="carousel-caption">
-                        <h2>Second slide label</h2>
+                        <h2>Buy New Books</h2>
                         <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
                             Officiis
                             molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>
@@ -30,7 +30,7 @@
                 <div class="carousel-item">
                     <div class="slider-img slider-bg-3"></div>
                     <div class="carousel-caption">
-                        <h2>Third slide label</h2>
+                        <h2>Sell books & earn money!</h2>
                         <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
                             Officiis
                             molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>

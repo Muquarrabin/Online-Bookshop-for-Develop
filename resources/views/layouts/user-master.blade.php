@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Bookshop - User home</title>
+    <title>CTG Book Shop - User Home</title>
     <!-- Favicon icon -->
     <link rel="icon" href="{{asset('/')}}assets/img/favicon-2.png" type="image/x-icon">
     <!-- Font Awesome -->
@@ -20,7 +20,7 @@
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark p-1 border-bottom" id="nav-top">
     <div class="container">
-        <a href="{{route('bookshop.home')}}" class="logo-img"><img src="{{asset('/')}}assets/img/logo.png" alt=""></a>
+        <a href="{{route('bookshop.home')}}" class="logo-img"><img src="{{asset('/')}}assets/img/logo.png" alt="CTG Book Shop"></a>
         <button class="navbar-toggler" data-toggle="collapse" data-target="#nav-collapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -71,7 +71,7 @@
         <div class="row">
             <div class="col-md-4">
                 <div class="headings">
-                    <h3><a href="{{route('bookshop.home')}}" class="text-secondary"><b class="text-danger">Book</b> Shop</a></h3>
+                    <h3><a href="{{route('bookshop.home')}}" class="text-secondary"><b class="text-danger">CTG</b>Book Shop</a></h3>
                 </div>
             </div>
             <div class="col-md-4">
@@ -111,22 +111,9 @@
             <a href="#nav-top" class="text-muted" title="Go to top"><i class="fas fa-angle-double-up"></i></a>
         </div>
         <div class="footer-text">
-            Copyright &copy; tahmid-ni7 - <span id="year"></span>
+            Copyright &copy; Sazid Hassan Khan & Nasif Muqarrabin - <span id="year"></span>
         </div>
-        <div class="social-icon mt-2">
-                <span class="mr-2">
-                    <a href="https://www.facebook.com/iamTahmid.ni7" class="text-primary"><i
-                            class="fab fa-facebook fa-2x"></i></a>
-                </span>
-            <span class="mr-2">
-                    <a href="https://github.com/tahmid-ni7" class="text-secondary"><i
-                            class="fab fa-github fa-2x"></i></a>
-                </span>
-            <span class="mr-2">
-                    <a href="https://stackoverflow.com/users/11026749/tahmid-ni7" class="text-warning"><i
-                            class="fab fa-stack-overflow fa-2x"></i></a>
-                </span>
-        </div>
+        
     </div>
 </footer>
 
