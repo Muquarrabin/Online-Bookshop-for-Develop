@@ -39,6 +39,9 @@ Route::get('/cart/payment', 'CheckoutController@show')->name('cart.payment');
 Route::post('/cart/checkout', 'CheckoutController@pay')->name('cart.checkout');
 // End of cart route
 
+Route::resource('/sell-book', 'SellingRequestController');
+
+
 Auth::routes();
 
 /*Route::get('/home', 'HomeController@index')->name('home');*/
@@ -61,6 +64,12 @@ Route::group(['middleware' => 'admin'], function (){
     Route::resource('/admin/users', 'Admin\AdminUsersController');
     Route::resource('/admin/orders', 'Admin\AdminOrdersController');
     Route::resource('/admin/reviews', 'Admin\AdminReviewsController');
+    Route::resource('/admin/selling-requests', 'Admin\AdminSellingRequestsController');
+    Route::get('/admin/selling-request/accept/{id}', 'Admin\AdminSellingRequestsController@acceptRequest')->name('selling-requests.accept');
+    Route::get('/admin/selling-request/reject/{id}', 'Admin\AdminSellingRequestsController@rejectRequest')->name('selling-requests.reject');
+    Route::resource('/admin/second-hand-account', 'Admin\AdminSecondHandAccController');
+    Route::get('/admin/second-hand-account/pay/{id}', 'Admin\AdminSecondHandAccController@paymentStatusPaid')->name('second-hand-account.pay');
+    Route::get('/admin/second-hand-account/unpay/{id}', 'Admin\AdminSecondHandAccController@paymentStatusUnpaid')->name('second-hand-account.unpay');
 });
 // End of admin route
 

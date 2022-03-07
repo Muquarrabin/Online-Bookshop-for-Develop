@@ -12,18 +12,18 @@ class BookshopHomeController extends Controller
     public function index()
     {
         # Home page Books
-        $engineering_books = Book::with('category')->whereHas('category', function($query) {
+        $engineering_books = Book::with('category','author','image','selling_requests')->whereHas('category', function($query) {
             $query->where('slug', 'engineering'); })
             ->take(8)
             ->latestFirst()
             ->get();
-        $literature_books = Book::with('category', 'author', 'image')
+        $literature_books = Book::with('category','author','image','selling_requests')
             ->whereHas('category', function ($query){
                 $query->where('slug', 'literature'); })
             ->take(4)
             ->latestFirst()
             ->get();
-        $discount_books = Book::with('category')
+        $discount_books = Book::with('category','author','image','selling_requests')
             ->where('discount_rate', '>', 0)
             ->orderBy('discount_rate', 'desc')
             ->take(6)
@@ -33,7 +33,7 @@ class BookshopHomeController extends Controller
     public function allBooks()
     {
         # ComposerServiceProvider load here
-        $books = Book::with('author', 'image', 'category')
+        $books = Book::with('category','author','image','selling_requests')
                     ->orderBy('id', 'DESC')
                     ->search(request('term')) #...Search Query
                     ->paginate(16);
@@ -43,7 +43,7 @@ class BookshopHomeController extends Controller
     {
         # ComposerServiceProvider load here
         $discountTitle = "All discount books";
-        $books = Book::with('author', 'image', 'category')
+        $books = Book::with('category','author','image','selling_requests')
             ->orderBy('discount_rate', 'DESC')
             ->where('discount_rate', '>', 0)
             ->paginate(16);
@@ -56,7 +56,7 @@ class BookshopHomeController extends Controller
     {
         $categoryName = $category->name;
         $books = $category->books()
-            ->with('category', 'author', 'image')
+            ->with('category','author','image','selling_requests')
             ->orderBy('id','DESC')
             ->paginate(16);
         return view('public.book-page', compact('books', 'categoryName'));
@@ -68,7 +68,7 @@ class BookshopHomeController extends Controller
     {
         $authorName = $author->name;
         $books = $author->books()
-            ->with('category', 'author', 'image')
+            ->with('category','author','image','selling_requests')
             ->orderBy('id', 'DESC')
             ->paginate(12);
         return view('public.book-page', compact('books', 'authorName'));
@@ -76,7 +76,7 @@ class BookshopHomeController extends Controller
 
     public function bookDetails($id)
     {
-        $book = Book::findOrFail($id);
+        $book = Book::with('category','author','image','selling_requests')->findOrFail($id);
         $book_reviews = $book->reviews()->latest()->get();
         return view('public.book-details' , compact('book', 'book_reviews'));
     }

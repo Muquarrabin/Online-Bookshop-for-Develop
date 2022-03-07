@@ -76,10 +76,15 @@
 
 
     <!-- Nav Item - Tables -->
-    <li class="nav-item active">
-        <a class="nav-link" href="#">
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('selling-requests.index') }}">
+            <i class="fas fa-clipboard"></i>
+            <span>Selling Requests</span></a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{ route('second-hand-account.index') }}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Accounts</span></a>
+            <span>Second Hand Accounts</span></a>
     </li>
 
     <!-- Divider -->

@@ -6,12 +6,14 @@ use App\Book;
 use App\Http\Requests\ShippingAddressRequest;
 use App\Order;
 use App\OrderDetail;
+use App\SecondHandAccount;
 use App\ShippingAddress;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
 use Stripe\Stripe;
 use Cart;
+use Illuminate\Support\Facades\DB;
 
 class CheckoutController extends Controller
 {
@@ -27,7 +29,7 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        if (Cart::content()->count()){
+        if (Cart::content()->count()) {
             return view('public.checkout-page');
         }
         abort(403, 'Cart is empty! you can not checkout');
@@ -35,62 +37,67 @@ class CheckoutController extends Controller
 
     public function pay(Request $request)
     {
-        Stripe::setApiKey('sk_test_51KSNTBBsBdaI2A0Y0Yg7T00pxWqmQXGihqjLuyESlaMGRZAAW64rrgeRmBu7r3n71wFw3DC0gfkNwiaoP3aRc8Dx00wzjf5GFv');
-        $token = $request->stripeToken;
-        $total = $request->cart_total;
+        DB::beginTransaction();
+        try {
+            $order = new Order();
+            $user = Auth::user();
 
-        $charge = Charge::create([
-            'amount' => $total*100,
-            'currency' => 'BDT',
-            'description' => 'Book payments',
-            'source' => $token,
-        ]);
+            $total = $request->cart_total;
 
-        $order = new Order();
-        $user = Auth::user();
-
-        $shipping_address = ShippingAddress::where('user_id', $user->id)->latest()->first();
-
-        $order->user_id = $user->id;
-        $order->shipping_id = $shipping_address->id;
-        $order->total_price = $total;
-        $order->payment_type = 'card';
-
-        $order->save();
-
-        $order_id = $order->id;
-
-        foreach (Cart::content() as $cartItem)
-        {
-            $orderDetails = new OrderDetail();
-
-            $orderDetails->order_id = $order_id;
-            $orderDetails->book_id = $cartItem->id;
-            $orderDetails->book_name = $cartItem->name;
-            $orderDetails->price = $cartItem->price;
-            $orderDetails->book_quantity = $cartItem->qty;
-
-            $orderDetails->save();
-
-            Cart::remove($cartItem->rowId);
-
-            $remove_product = Book::findOrFail($orderDetails->book_id);
-
-            $remove_product->update([
-                'quantity' => $remove_product->quantity - $orderDetails->book_quantity,
-            ]);
+            if ($request->payment_method == 'card') {
+                Stripe::setApiKey('sk_test_51KSNTBBsBdaI2A0Y0Yg7T00pxWqmQXGihqjLuyESlaMGRZAAW64rrgeRmBu7r3n71wFw3DC0gfkNwiaoP3aRc8Dx00wzjf5GFv');
+                $token = $request->stripeToken;
+                $charge = Charge::create([
+                    'amount' => $total * 100,
+                    'currency' => 'BDT',
+                    'description' => 'Book payments',
+                    'source' => $token,
+                ]);
+            }
 
 
+
+
+            $shipping_address = ShippingAddress::where('user_id', $user->id)->latest()->first();
+
+            $order->user_id = $user->id;
+            $order->shipping_id = $shipping_address->id;
+            $order->total_price = $total;
+            $order->payment_type = $request->payment_method;
+
+            $order->save();
+
+            $order_id = $order->id;
+
+            foreach (Cart::content() as $cartItem) {
+                $orderDetails = new OrderDetail();
+
+                $orderDetails->order_id = $order_id;
+                $orderDetails->book_id = $cartItem->id;
+                $orderDetails->book_name = $cartItem->name;
+                $orderDetails->price = $cartItem->price;
+                $orderDetails->book_quantity = $cartItem->qty;
+
+                $orderDetails->save();
+
+                Cart::remove($cartItem->rowId);
+
+                $remove_product = Book::findOrFail($orderDetails->book_id);
+
+                $remove_product->update([
+                    'quantity' => $remove_product->quantity - $orderDetails->book_quantity,
+                ]);
+
+            }
+            DB::commit();
+            return redirect()->route('user.orders')
+                ->with('success_message', 'Order placed successfully. Wait for confirmation.');
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            //throw $th;
+            return redirect()->route('user.orders')
+                ->with('alert_message', 'Error:' . $th->getMessage());
         }
-
-        return redirect()->route('user.orders')
-            ->with('success_message', 'Order placed successfully. Wait for confirmation.');
-
-
-
-
-
-
     }
 
     /**

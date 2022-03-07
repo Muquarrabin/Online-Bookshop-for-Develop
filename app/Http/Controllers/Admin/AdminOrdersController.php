@@ -6,6 +6,9 @@ use App\Order;
 use App\OrderDetail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Book;
+use App\SecondHandAccount;
+use Illuminate\Support\Facades\DB;
 
 class AdminOrdersController extends AdminBaseController
 {
@@ -75,11 +78,39 @@ class AdminOrdersController extends AdminBaseController
      */
     public function update(Request $request, $id)
     {
-        $input = $request->all();
-        $order = Order::findOrFail($id);
-        $order->update($input);
+        DB::beginTransaction();
+        try {
+            $input = $request->all();
+            $order = Order::with('orderDetail','second_hand_acc')->findOrFail($id);
+            $order->update($input);
+            foreach ($order->orderDetail as $item) {
+                $book = Book::with('selling_requests')->findOrFail($item->book_id);
+                if ($order->order_status) {
+                    if ($book->is_second_hand) {
+                        $sec_hand_acc = new SecondHandAccount();
+                        $sec_hand_acc->selling_request_id = $book->selling_request_id;
+                        $sec_hand_acc->order_id = $order->id;
+                        $sec_hand_acc->asking_price = $book->selling_requests->asking_price;
+                        $sec_hand_acc->selling_price = $book->selling_requests->selling_price;
+                        if ($book->selling_requests->selling_price < $order->total_price) {
+                            $sec_hand_acc->discount = $order->total_price - $book->selling_requests->selling_price;
+                        }
+                        $sec_hand_acc->commission_earned = $order->total_price - $book->selling_requests->asking_price;
+                        $sec_hand_acc->save();
+                    }
+                }
+                else{
+                    $order->second_hand_acc->delete();
+                }
+            }
 
-        return redirect()->back();
+
+            DB::commit();
+            return redirect()->back();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     /**

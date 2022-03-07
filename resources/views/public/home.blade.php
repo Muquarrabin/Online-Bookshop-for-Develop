@@ -69,6 +69,13 @@
                                                     <div class="book-title mb-2">
                                                         <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
                                                     </div>
+                                                    <div class="book-title mb-2">
+                                                        @if ($book->is_second_hand)
+                                                            Condition: 2nd Hand
+                                                        @else
+                                                            Condition: New
+                                                        @endif
+                                                    </div>
                                                     <div class="book-author mb-2">
                                                         <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
                                                     </div>
@@ -108,6 +115,13 @@
                                                     </div>
                                                     <div class="book-title mb-2">
                                                         <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
+                                                    </div>
+                                                    <div class="book-title mb-2">
+                                                        @if ($book->is_second_hand)
+                                                            Condition: 2nd Hand
+                                                        @else
+                                                            Condition: New
+                                                        @endif
                                                     </div>
                                                     <div class="book-author mb-2">
                                                         <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
@@ -155,6 +169,13 @@
                                         </div>
                                         <div class="book-title mb-2">
                                             <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
+                                        </div>
+                                        <div class="book-title mb-2">
+                                            @if ($book->is_second_hand)
+                                                Condition: 2nd Hand
+                                            @else
+                                                Condition: New
+                                            @endif
                                         </div>
                                         <div class="book-author mb-2">
                                             <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
