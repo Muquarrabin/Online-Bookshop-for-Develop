@@ -62,6 +62,6 @@ Now this project is ready to run. For admin, Email `admin@bookshop.com` password
 
 ---
 
-&copy; [Sazid Hassan Khan & Nasif Muqarrabin](http://tahmid-ni7.github.io/portfolio)
+&copy; [Sazid Hassan Khan & Nasif Muqarrabin]
 
 `Full-stack web developer & CS Engineer`

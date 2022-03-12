@@ -29,7 +29,7 @@ class BooksCreateRequest extends FormRequest
             'description'   => 'required',
             'author_id'     => 'required',
             'category_id'   => 'required',
-            'image_id'      => 'required|image|max:1000',
+            'image_id'      => 'required|max:1000',
             'init_price'    => 'required|numeric',
             'discount_rate' => 'required|numeric|max:100',
             'quantity'      => 'required|numeric'
