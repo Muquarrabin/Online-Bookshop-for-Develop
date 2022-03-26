@@ -13,7 +13,7 @@ class BookshopHomeController extends Controller
     {
         # Home page Books
         $engineering_books = Book::with('category','author','image','selling_requests')->whereHas('category', function($query) {
-            $query->where('slug', 'engineering-books'); })
+            $query->where('slug', 'educational'); })
             ->take(8)
             ->latestFirst()
             ->get();
