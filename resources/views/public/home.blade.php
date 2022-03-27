@@ -32,7 +32,7 @@
                                 Isabel Allende
                             </figcaption>
                         </blockquote>
-                    
+
                     </div>
                 </div>
                 <div class="carousel-item">
@@ -59,54 +59,56 @@
                 <!-- //Sidebar End -->
                 <div class="col-md-8">
                     <div class="content-area">
-                        <div class="card my-4">
-                            <div class="card-header bg-dark">
-                                <h4><a href="{{route('category', 'educational')}}" class="text-white">Educational Books</a></h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="row">
-                                    @if(! $engineering_books->count())
-                                       <div class="alert alert-warning">No books availble</div>
-                                    @else
-                                        @foreach($engineering_books as $book)
-                                            <div class="col-lg-3 col-6">
-                                                <div class="book-wrap">
-                                                    <div class="book-image mb-2">
-                                                        <a href="{{route('book-details', $book->id)}}"><img src="{{$book->image_url}}" alt=""></a>
-                                                        @if($book->discount_rate)
-                                                            <h6><span class="badge badge-warning discount-tag">Discount {{$book->discount_rate}}%</span></h6>
-                                                        @endif
-                                                    </div>
-                                                    <div class="book-title mb-2">
-                                                        <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
-                                                    </div>
-                                                    <div class="book-title mb-2">
-                                                        @if ($book->is_second_hand)
-                                                            Condition: 2nd Hand
-                                                        @else
-                                                            Condition: New
-                                                        @endif
-                                                    </div>
-                                                    <div class="book-author mb-2">
-                                                        <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
-                                                    </div>
-                                                    <div class="pbook-price mb-3">
-                                                        @if($book->discount_rate)
-                                                            <span class="line-through mr-3">{{$book->init_price}} TK</span>
-                                                        @endif
-                                                        <span class=""><strong>{{$book->price}} TK</strong></span>
+                        @foreach ($categories as $category)
+                            <div class="card my-4">
+                                <div class="card-header bg-dark">
+                                    <h4><a href="{{route('category', $category->slug)}}" class="text-white">{{ $category->name }} Books</a></h4>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        @if(! $category->books->count())
+                                        <div class="alert alert-warning">No books availble</div>
+                                        @else
+                                            @foreach($category->books as $book)
+                                                <div class="col-lg-3 col-6">
+                                                    <div class="book-wrap">
+                                                        <div class="book-image mb-2">
+                                                            <a href="{{route('book-details', $book->id)}}"><img src="{{$book->image_url}}" alt=""></a>
+                                                            @if($book->discount_rate)
+                                                                <h6><span class="badge badge-warning discount-tag">Discount {{$book->discount_rate}}%</span></h6>
+                                                            @endif
+                                                        </div>
+                                                        <div class="book-title mb-2">
+                                                            <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
+                                                        </div>
+                                                        <div class="book-title mb-2">
+                                                            @if ($book->is_second_hand)
+                                                                Condition: 2nd Hand
+                                                            @else
+                                                                Condition: New
+                                                            @endif
+                                                        </div>
+                                                        <div class="book-author mb-2">
+                                                            <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
+                                                        </div>
+                                                        <div class="pbook-price mb-3">
+                                                            @if($book->discount_rate)
+                                                                <span class="line-through mr-3">{{$book->init_price}} TK</span>
+                                                            @endif
+                                                            <span class=""><strong>{{$book->price}} TK</strong></span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                                <div class="show-more pt-2 text-right">
-                                    <a href="{{route('category', 'educational')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
+                                            @endforeach
+                                        @endif
+                                    </div>
+                                    <div class="show-more pt-2 text-right">
+                                        <a href="{{route('category', $category->slug)}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="card my-4">
+                        @endforeach
+                        {{-- <div class="card my-4">
                             <div class="card-header bg-dark">
                                 <h4><a href="{{route('category', 'fiction')}}" class="text-white">Literature Books</a></h4>
                             </div>
@@ -152,7 +154,7 @@
                                     <a href="{{route('category', 'fiction')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
                                 </div>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
                 </div>
             </div>
