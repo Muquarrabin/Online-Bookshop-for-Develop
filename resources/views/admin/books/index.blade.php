@@ -47,6 +47,7 @@
                             <th>Discount</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Is Second Hand</th>
                         </tr>
                         </thead>
                         <tfoot>
@@ -60,6 +61,7 @@
                             <th>Discount</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Is Second Hand</th>
                         </tr>
                         </tfoot>
                         <tbody>
@@ -82,6 +84,17 @@
                             <td>{{$book->discount_rate}}%</td>
                             <td>{{$book->price}}</td>
                             <td>{{$book->quantity}}</td>
+                            <td>
+                                @if ($book->is_second_hand)
+                                    <span class="badge badge-success">
+                                        Yes
+                                    </span>
+                                @else
+                                    <span class="badge badge-danger">
+                                        No
+                                    </span>
+                                @endif
+                            </td>
                         </tr>
                         @endforeach
                         </tbody>

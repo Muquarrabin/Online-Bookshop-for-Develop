@@ -66,7 +66,7 @@
                                     <td><img src="{{$author->image? $author->image_url : $author->default_img}}" height="50" alt=""></td>
                                     <td><a href="{{route('authors.edit', $author->id)}}">{{$author->name}}</a></td>
                                     <td>{{$author->books->count()}}</td>
-                                    <td>{{str_limit($author->bio, 100)}}<a href="#">read more</a></td>
+                                    <td>{{str_limit($author->bio, 100)}}<a href="{{route('authors.edit', $author->id)}}">read more</a></td>
                                 </tr>
                             @endforeach
                             </tbody>

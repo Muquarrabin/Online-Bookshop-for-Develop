@@ -14,26 +14,37 @@
                     <div class="slider-img slider-bg-1"></div>
                     <div class="carousel-caption">
                         <h2>Welcome CTG Book Shop</h2>
-                        <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
-                            Officiis molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>
+                        <blockquote class="blockquote mb-4">
+                            <p class="font-italic">"Books are the quietest and most constant of friends; they are the most accessible and wisest of counselors, and the most patient of teachers."</p>
+                            <figcaption class="blockquote-footer">
+                                Charles W. Eliot
+                            </figcaption>
+                        </blockquote>
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="slider-img slider-bg-2"></div>
                     <div class="carousel-caption">
                         <h2>Buy New Books</h2>
-                        <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
-                            Officiis
-                            molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>
+                        <blockquote class="blockquote mb-4">
+                            <p class="font-italic">The library is inhabited by spirits that come out of the pages at night.</p>
+                            <figcaption class="blockquote-footer">
+                                Isabel Allende
+                            </figcaption>
+                        </blockquote>
+                    
                     </div>
                 </div>
                 <div class="carousel-item">
                     <div class="slider-img slider-bg-3"></div>
                     <div class="carousel-caption">
                         <h2>Sell books & earn money!</h2>
-                        <p class="d-none d-md-block">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sapiente, laborum earum.
-                            Officiis
-                            molestiae ratione nobis, eveniet quidem veniam exercitationem laudantium.</p>
+                        <blockquote class="blockquote mb-4">
+                            <p class="font-italic">A book is a version of the world. If you do not like it, ignore it; or offer your own version in return.</p>
+                            <figcaption class="blockquote-footer">
+                                Salman Rushdie
+                            </figcaption>
+                        </blockquote>
                     </div>
                 </div>
             </div>
@@ -50,7 +61,7 @@
                     <div class="content-area">
                         <div class="card my-4">
                             <div class="card-header bg-dark">
-                                <h4><a href="{{route('category', 'engineering')}}" class="text-white">Engineering Books</a></h4>
+                                <h4><a href="{{route('category', 'educational')}}" class="text-white">Educational Books</a></h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -69,6 +80,13 @@
                                                     <div class="book-title mb-2">
                                                         <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
                                                     </div>
+                                                    <div class="book-title mb-2">
+                                                        @if ($book->is_second_hand)
+                                                            Condition: 2nd Hand
+                                                        @else
+                                                            Condition: New
+                                                        @endif
+                                                    </div>
                                                     <div class="book-author mb-2">
                                                         <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
                                                     </div>
@@ -84,13 +102,13 @@
                                     @endif
                                 </div>
                                 <div class="show-more pt-2 text-right">
-                                    <a href="{{route('category', 'engineering')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
+                                    <a href="{{route('category', 'educational')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
                         <div class="card my-4">
                             <div class="card-header bg-dark">
-                                <h4><a href="{{route('category', 'literature')}}" class="text-white">Literature Books</a></h4>
+                                <h4><a href="{{route('category', 'fiction')}}" class="text-white">Literature Books</a></h4>
                             </div>
                             <div class="card-body">
                                 <div class="row">
@@ -109,6 +127,13 @@
                                                     <div class="book-title mb-2">
                                                         <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
                                                     </div>
+                                                    <div class="book-title mb-2">
+                                                        @if ($book->is_second_hand)
+                                                            Condition: 2nd Hand
+                                                        @else
+                                                            Condition: New
+                                                        @endif
+                                                    </div>
                                                     <div class="book-author mb-2">
                                                         <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>
                                                     </div>
@@ -124,7 +149,7 @@
                                     @endif
                                 </div>
                                 <div class="show-more pt-2 text-right">
-                                    <a href="{{route('category', 'literature')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
+                                    <a href="{{route('category', 'fiction')}}" class="text-secondary">See More <i class="fas fa-angle-double-right"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -155,6 +180,13 @@
                                         </div>
                                         <div class="book-title mb-2">
                                             <a href="{{route('book-details', $book->id)}}">{{str_limit($book->title, 30)}}</a>
+                                        </div>
+                                        <div class="book-title mb-2">
+                                            @if ($book->is_second_hand)
+                                                Condition: 2nd Hand
+                                            @else
+                                                Condition: New
+                                            @endif
                                         </div>
                                         <div class="book-author mb-2">
                                             <small>By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a></small>

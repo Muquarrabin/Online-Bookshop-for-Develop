@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Bookshop - Cart page
+CTG Book Shop - Cart page
 @endsection
 
 @section('content')

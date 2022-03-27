@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-Bookshop - Book details
+CTG Book Shop - Book details
 @endsection
 @section('content')
     <section class="main-content">
@@ -27,10 +27,19 @@ Bookshop - Book details
                                         <div class="author mb-2">
                                             By <a href="{{route('author', $book->author->slug)}}">{{$book->author->name}}</a>
                                         </div>
-                                        @if(($book->quantity) > 1)
+
+                                        @if($book->is_second_hand)
+                                            <div>Book Condition: 2nd Hand, Please call before order.</div>
+                                            <div>Seller Name: {{ $book->selling_requests->seller_name }}</div>
+                                            <div>Seller Mobile: {{ $book->selling_requests->seller_mobile }}</div>
+                                            <div>Seller Mobile: {{ $book->selling_requests->seller_email }}</div>
+                                        @else
+                                            <div>Book Condition: New</div>
+                                        @endif
+                                        @if(($book->quantity) > 0)
                                             <div class="badge badge-success mb-2">In Stock</div>
                                         @else
-                                            <div class="badge badge-danger mb-2">out of Stock</div>
+                                            <div class="badge badge-danger mb-2">Out of Stock</div>
                                         @endif
                                         @if($book->discount_rate)
                                             <h6><span class="badge badge-warning">{{$book->discount_rate}}% Discount</span></h6>

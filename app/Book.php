@@ -29,6 +29,10 @@ class Book extends Model
         return $this->hasMany('App\Review');
     }
 
+    public function selling_requests()
+    {
+        return $this->belongsTo(SellingRequest::class,'selling_request_id','id');
+    }
 
     public function scopeLatestFirst($query)
     {

@@ -14,10 +14,14 @@ class Order extends Model
     }
     public function orderDetail()
     {
-        return $this->hasOne('App\OrderDetail');
+        return $this->hasMany(OrderDetail::class,'order_id','id');
     }
     public function shipping()
     {
         return $this->belongsTo('App\ShippingAddress', 'shipping_id');
+    }
+    public function second_hand_acc()
+    {
+        return $this->hasOne(SecondHandAccount::class,'order_id','id');
     }
 }

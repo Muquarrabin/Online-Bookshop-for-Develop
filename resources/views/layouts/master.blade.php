@@ -75,6 +75,8 @@
 <script type="text/javascript" src="{{asset('/')}}assets/js/bootstrap.min.js"></script>
 <!-- Your custom scripts (optional) -->
 <script type="text/javascript" src="{{asset('/')}}assets/js/script.js"></script>
+@yield('script')
+
 
 </body>
 </html>
