@@ -31,7 +31,7 @@ class BooksUpdateRequest extends FormRequest
             'description'   => 'required',
             'author_id'     => 'required',
             'category_id'   => 'required',
-            'image_id'      => 'image|max:1000',
+            'image_id'      => 'max:1000',
             'init_price'    => 'required|numeric',
             'discount_rate' => 'required|numeric|max:100',
             'quantity'      => 'required|numeric'
