@@ -12,7 +12,7 @@
     <hr class="sidebar-divider my-0">
 
     <!-- Nav Item - Dashboard -->
-    <li class="nav-item active">
+    <li class="nav-item">
         <a class="nav-link" href="{{route('admin.home')}}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
@@ -37,6 +37,12 @@
         <a class="nav-link" href="{{route('categories.index')}}">
             <i class="fas fa-fw fa-folder"></i>
             <span>Categories</span>
+        </a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="{{route('shipping-charges.index')}}">
+            <i class="fas fa-fw fa-truck-loading"></i>
+            <span>Shipping Charges</span>
         </a>
     </li>
 

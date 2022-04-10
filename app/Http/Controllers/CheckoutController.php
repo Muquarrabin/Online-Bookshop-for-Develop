@@ -8,6 +8,7 @@ use App\Order;
 use App\OrderDetail;
 use App\SecondHandAccount;
 use App\ShippingAddress;
+use App\ShippingCharge;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Charge;
@@ -30,7 +31,8 @@ class CheckoutController extends Controller
     public function index()
     {
         if (Cart::content()->count()) {
-            return view('public.checkout-page');
+            $shipping_areas=ShippingCharge::all();
+            return view('public.checkout-page',compact('shipping_areas'));
         }
         abort(403, 'Cart is empty! you can not checkout');
     }
@@ -62,6 +64,8 @@ class CheckoutController extends Controller
 
             $order->user_id = $user->id;
             $order->shipping_id = $shipping_address->id;
+            $order->shipping_charge_id = $request->shipping_charge_id;
+            $order->shipping_charge = $request->shipping_charge;
             $order->total_price = $total;
             $order->payment_type = $request->payment_method;
 
@@ -118,12 +122,14 @@ class CheckoutController extends Controller
      */
     public function store(ShippingAddressRequest $request)
     {
-        $input = $request->all();
-        $input['user_id'] = Auth::user()->id;
+        $shipping_address = new ShippingAddress();
+        $shipping_address->user_id = Auth::user()->id;
+        $shipping_address->shipping_name = $request->shipping_name;
+        $shipping_address->mobile_no = $request->mobile_no;
+        $shipping_address->address = $request->address;
+        $shipping_address->save();
 
-        $shipping = ShippingAddress::create($input);
-
-        return redirect()->route('cart.payment');
+        return redirect()->route('cart.payment',['area_id'=>$request->area_id]);
     }
 
     /**
@@ -132,9 +138,10 @@ class CheckoutController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show(Request $request)
     {
-        return view('public.payment');
+        $shipping_area=ShippingCharge::findOrFail($request->area_id);
+        return view('public.payment',compact('shipping_area'));
     }
 
     /**
