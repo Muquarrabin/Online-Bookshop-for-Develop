@@ -20,6 +20,10 @@ class Order extends Model
     {
         return $this->belongsTo('App\ShippingAddress', 'shipping_id');
     }
+    public function shipping_charge()
+    {
+        return $this->belongsTo(ShippingCharge::class, 'shipping_charge_id', 'id');
+    }
     public function second_hand_acc()
     {
         return $this->hasOne(SecondHandAccount::class,'order_id','id');

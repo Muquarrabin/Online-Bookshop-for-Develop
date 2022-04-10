@@ -26,7 +26,8 @@ class ShippingAddressRequest extends FormRequest
         return [
             'shipping_name' => 'required',
             'mobile_no' =>'required',
-            'address' => 'required'
+            'address' => 'required',
+            'area_id' => 'required|exists:shipping_charges,id',
         ];
     }
 }

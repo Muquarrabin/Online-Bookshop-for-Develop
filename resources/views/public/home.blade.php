@@ -69,7 +69,8 @@
                                         @if(! $category->books->count())
                                         <div class="alert alert-warning">No books availble</div>
                                         @else
-                                            @foreach($category->books as $book)
+{{--                                            @foreach($category->books as $book)--}}
+                                            @foreach($category->books->take(4) as $book)
                                                 <div class="col-lg-3 col-6">
                                                     <div class="book-wrap">
                                                         <div class="book-image mb-2">
