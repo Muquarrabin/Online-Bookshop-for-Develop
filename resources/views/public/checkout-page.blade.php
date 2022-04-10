@@ -57,6 +57,22 @@
                                 </span>
                             @endif
                         </div>
+                        <div class="form-group">
+                            @foreach($shipping_areas as $area)
+                                <input type="hidden" value="{{$area->amount}}" id="{{$area->id}}">
+                            @endforeach
+                            <select name="area_id" id="area_id" onchange="chargeAdd()" class="form-control {{$errors->has('area_id')? 'is-invalid' : ''}}">
+                                <option value="">Select shipping area</option>
+                                @foreach($shipping_areas as $area)
+                                    <option value="{{$area->id}}">{{$area->area_name}} (Charge: {{$area->amount}})</option>
+                                @endforeach
+                            </select>
+                            @if($errors->has('area_id'))
+                                <span class="invalid-feedback">
+                                    <strong>{{$errors->first('area_id')}}</strong>
+                                </span>
+                            @endif
+                        </div>
 
                         <div class="payment-area my-4 py-5 px-3 bg-light">
                             <input type="submit" value="Proceed to payment" class="btn btn-primary">
@@ -73,12 +89,34 @@
                         <div class="card-body">
                             <p>Total products = {{Cart::content()->count()}}</p>
                             <p>Product Cost = {{Cart::total()}} TK</p>
-                            <p>Shipping cost = 0.00 TK</p>
-                            <p><strong>Total cost = {{Cart::total()}} TK</strong></p>
+                            <p>Shipping cost = <span id="charge"></span> TK</p>
+                            <p><strong>Total cost = <span id="total"></span> TK</strong></p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('script')
+<script>
+    $(document).ready(function(){
+        $('#charge').text(0);
+        $('#total').text({{Cart::total()}});
+    });
+     function chargeAdd () {
+        var shipping_area = $('#area_id').find(':selected').val();
+        if (shipping_area) {
+            var charge = $('#'+shipping_area).val();
+            $('#charge').text(charge);
+            var total = parseInt(charge) + parseInt({{Cart::total()}});
+            $('#total').text(total);
+        }
+        else{
+            $('#charge').text(0);
+            $('#total').text({{Cart::total()}});
+        }
+    }
+
+</script>
 @endsection

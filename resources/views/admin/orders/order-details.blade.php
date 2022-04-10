@@ -38,6 +38,11 @@
                         @endforeach
                         <tr>
                             <td colspan="2"></td>
+                            <td><strong>Shipping Cost</strong></td>
+                            <td><strong>{{$order->shipping_charge}} TK</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"></td>
                             <td><strong>Total</strong></td>
                             <td><strong>{{$order->total_price}} TK</strong></td>
                         </tr>
