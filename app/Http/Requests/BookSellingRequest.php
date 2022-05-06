@@ -28,7 +28,7 @@ class BookSellingRequest extends FormRequest
             'book_description'      => 'required',
             'author_id'             => 'required',
             'category_id'           => 'required',
-            'image_id'              => 'required|image|max:1000',
+            'image_id'              => 'required',
             'asking_price'          => 'required|numeric',
             'selling_price'         => 'required|numeric',
             'seller_name'           => 'required',
