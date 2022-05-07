@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\BookSellingRequest;
+use App\Notifications\SellingRequestMail;
 use Illuminate\Http\Request;
 use App\Image;
 use App\SellingRequest;
 use Intervention\Image\ImageManagerStatic as Photo;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Notification;
 
 class SellingRequestController extends Controller
 {
@@ -34,6 +36,7 @@ class SellingRequestController extends Controller
         }
 
         $create_request = SellingRequest::create($input);
+        Notification::route('mail',$create_request->seller_email)->notify(new SellingRequestMail($create_request->request_id));
         return redirect('/sell-book')
             ->with('success_message', 'Selling Request is taken. We will contact with you soon via email.');
     }

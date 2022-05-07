@@ -60,7 +60,7 @@
             <a href="#nav-top" class="text-muted" title="Go to top"><i class="fas fa-angle-double-up"></i></a>
         </div>
         <div class="footer-text">
-            Copyright &copy; -Sazid Hassan Khan & Nasif Muqarrabin - <span id="year"></span>
+            Copyright &copy; -Sazid Hassan Khan & Nasif Muquarrabin - <span id="year"></span>
         </div>
     </div>
 </footer>
