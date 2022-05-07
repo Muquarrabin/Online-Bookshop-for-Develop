@@ -15,6 +15,7 @@
                             </div>
 
                             <div class="card-body">
+                                @include('layouts.includes.flash-message')
                                 <div class="row">
                                     {!! Form::open(['method' => 'POST', 'action' => 'SellingRequestController@store', 'files' => true]) !!}
 

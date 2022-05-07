@@ -3,11 +3,12 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Book;
+use App\Notifications\SellingRequestApprovalMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\SellingRequest;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Notification;
 class AdminSellingRequestsController extends Controller
 {
     public function index()
@@ -40,6 +41,8 @@ class AdminSellingRequestsController extends Controller
             $book->selling_request_id=$selling_request->id;
             $book->save();
             DB::commit();
+            Notification::route('mail',$selling_request->seller_email)->notify(
+                new SellingRequestApprovalMail($selling_request->request_id,'accepted','We will soon publish your book on our website.'));
             return redirect()->back()
                 ->with('success_message', 'Selling Request Accepted! An email sent to seller email.');
         } catch (\Throwable $th) {
@@ -53,7 +56,11 @@ class AdminSellingRequestsController extends Controller
     public function rejectRequest(Request $request)
     {
         $selling_request = SellingRequest::find($request->id);
+        $req_id=$selling_request->request_id;
+        $seller_email=$selling_request->seller_email;
         $selling_request->delete();
+        Notification::route('mail',$seller_email)->notify(
+            new SellingRequestApprovalMail($req_id,'rejected','Sorry for the inconvenience.'));
         return redirect()->back()
             ->with('alert_message', 'Selling Request Rejected! An email sent to seller email.');
     }

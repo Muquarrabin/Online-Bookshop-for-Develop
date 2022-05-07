@@ -54,7 +54,7 @@
         <footer class="sticky-footer bg-white">
             <div class="container my-auto">
                 <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; <strong>Sazid Hassan Khan & Nasif Muqarrabin
+                    <span>Copyright &copy; <strong>Sazid Hassan Khan & Nasif Muquarrabin
                     </strong> <span id="year"></span></span>
                 </div>
             </div>
