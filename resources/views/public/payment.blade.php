@@ -36,7 +36,7 @@
                     <input type="hidden" name="cart_total" value="{{Cart::total()+$shipping_area->amount}}">
                     <input type="hidden" name="payment_method" value="card">
                     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                            data-key="pk_test_51KSNTBBsBdaI2A0YopUaiRdocldslKa3UYhhm9XT8H2KeCDiC2pdAvDInJXhX8CpwQqsJDS3pPyJhwOs1cJY4NFR00c5eCyZ5S"
+                            data-key="pk_test_51KjSKLDWKa969w29zJXpuiCqkuNIGY0hs7Db1jWN42MBGbCUHigWlk6rgVBenuhf51Il6g1cu1Li5MTa9HdTMjSw00K4Yzk5qD"
                             data-amount=""
                             data-name="CTG Book Shop"
                             data-description="CTG Book Shop payment"

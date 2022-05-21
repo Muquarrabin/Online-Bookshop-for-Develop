@@ -46,18 +46,6 @@ class CheckoutController extends Controller
 
             $total = $request->cart_total;
 
-            if ($request->payment_method == 'card') {
-                Stripe::setApiKey('sk_test_51KSNTBBsBdaI2A0Y0Yg7T00pxWqmQXGihqjLuyESlaMGRZAAW64rrgeRmBu7r3n71wFw3DC0gfkNwiaoP3aRc8Dx00wzjf5GFv');
-                $token = $request->stripeToken;
-                $charge = Charge::create([
-                    'amount' => $total * 100,
-                    'currency' => 'BDT',
-                    'description' => 'Book payments',
-                    'source' => $token,
-                ]);
-            }
-
-
 
 
             $shipping_address = ShippingAddress::where('user_id', $user->id)->latest()->first();
@@ -72,7 +60,16 @@ class CheckoutController extends Controller
             $order->save();
 
             $order_id = $order->id;
-
+            if ($request->payment_method == 'card') {
+                Stripe::setApiKey('sk_test_51KjSKLDWKa969w29aCGH6ooOJADL3WhtF3bzS8U7Ywygl7jZlWmjdG8li3CxBU4s5dSZSuwJ6hF5fGIpRuSzElUx00xBqFSO1N');
+                $token = $request->stripeToken;
+                $charge = Charge::create([
+                    'amount' => $total * 100,
+                    'currency' => 'BDT',
+                    'description' => 'Book payments of ' . $order_id,
+                    'source' => $token,
+                ]);
+            }
             foreach (Cart::content() as $cartItem) {
                 $orderDetails = new OrderDetail();
 
