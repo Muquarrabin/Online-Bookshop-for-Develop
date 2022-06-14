@@ -7,8 +7,11 @@ CTG Book Shop - Book details
     <section class="main-content">
         <div class="container">
             <div class="row">
+
                 <div class="col-md-8">
                     <div class="content-area">
+                        @include('layouts.includes.flash-message')
+
                         <div class="card my-4">
                             <div class="card-header bg-dark">
                                 <h4 class="text-white">Book Details</h4>
@@ -72,7 +75,6 @@ CTG Book Shop - Book details
                                                 <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-shopping-cart"></i> Add to cart</button>
                                             </div>
                                         </form>
-                                        @include('layouts.includes.flash-message')
                                     </div>
                                 </div>
                                 <div class="row">

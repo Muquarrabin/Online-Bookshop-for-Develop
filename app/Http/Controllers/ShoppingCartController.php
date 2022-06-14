@@ -25,7 +25,7 @@ class ShoppingCartController extends Controller
                         'image' => $book->image
                     ]
                 ]);
-                return redirect()->back();
+                return redirect()->back()->with('success_message','Book Added to Cart!');
             }
             else
                 {

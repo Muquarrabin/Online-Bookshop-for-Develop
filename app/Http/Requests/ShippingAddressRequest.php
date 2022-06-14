@@ -27,6 +27,8 @@ class ShippingAddressRequest extends FormRequest
             'shipping_name' => 'required',
             'mobile_no' =>'required',
             'address' => 'required',
+            'city' => 'required',
+            'post_code' => 'required',
             'area_id' => 'required|exists:shipping_charges,id',
         ];
     }
