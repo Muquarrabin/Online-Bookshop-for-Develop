@@ -14,6 +14,9 @@
 /*Route::get('/', function () {
     return view('welcome');
 });*/
+use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\CheckoutController;
+
 
 Route::get('/', 'BookshopHomeController@index')->name('bookshop.home');
 
@@ -86,3 +89,13 @@ Route::group(['middleware' => 'user'], function (){
 // End of users route
 
 Route::get('/logout', 'CustomLogoutController@logout')->name('logout');
+
+
+// SSLCOMMERZ Start
+
+Route::post('/sslcommerz-success', [CheckoutController::class, 'sslCommerzSuccess']);
+Route::post('/sslcommerz-fail', [CheckoutController::class, 'sslCommerzFail']);
+Route::post('/sslcommerz-cancel', [CheckoutController::class, 'sslCommerzCancel']);
+
+Route::post('/sslcommerz-ipn', [CheckoutController::class, 'sslCommerzIpn']);
+//SSLCOMMERZ END

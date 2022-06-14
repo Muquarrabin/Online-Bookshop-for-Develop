@@ -58,6 +58,27 @@
                             @endif
                         </div>
                         <div class="form-group">
+                            <input type="text" name="city" class="form-control {{$errors->has('city') ? 'is-invalid': ''}}"
+                                   placeholder="City">
+
+                            @if($errors->has('city'))
+                                <span class="invalid-feedback">
+                                    <strong>{{$errors->first('city')}}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="post_code"
+                                   class="form-control {{$errors->has('post_code') ? 'is-invalid': ''}}"
+                                   placeholder="Post Code">
+
+                            @if($errors->has('post_code'))
+                                <span class="invalid-feedback">
+                                    <strong>{{$errors->first('post_code')}}</strong>
+                                </span>
+                            @endif
+                        </div>
+                        <div class="form-group">
                             @foreach($shipping_areas as $area)
                                 <input type="hidden" value="{{$area->amount}}" id="{{$area->id}}">
                             @endforeach
