@@ -135,7 +135,7 @@ class CheckoutController extends Controller
                 ]);
 
             }
-            $order->order_status=1;
+            $order->order_status=0;
             $order->save();
             DB::commit();
             return redirect()->route('user.orders')

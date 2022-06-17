@@ -2,20 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e2a5180-ae66-4788-8d06-64711ce0faa9" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Library/SslCommerz/AbstractSslCommerz.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Library/SslCommerz/SslCommerzInterface.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Library/SslCommerz/SslCommerzNotification.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/sslcommerz.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ShippingAddressRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ShippingAddressRequest.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/public/book-details.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/book-details.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/public/checkout-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/checkout-page.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/public/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/payment.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,16 +151,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "D:/Flyfood",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/Flyfood&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Online-Bookshop-for-Develop\resources\views" />
@@ -228,7 +216,8 @@
       <workItem from="1653042308613" duration="3390000" />
       <workItem from="1653114505794" duration="1505000" />
       <workItem from="1655137475708" duration="27000" />
-      <workItem from="1655137615960" duration="15357000" />
+      <workItem from="1655137615960" duration="15435000" />
+      <workItem from="1655442264496" duration="679000" />
     </task>
     <servers />
   </component>
