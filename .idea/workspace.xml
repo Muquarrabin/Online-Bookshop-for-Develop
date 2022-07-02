@@ -8,6 +8,7 @@
       <change afterPath="$PROJECT_DIR$/config/sslcommerz.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CheckoutController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ShoppingCartController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/VerifyCsrfToken.php" afterDir="false" />
@@ -16,6 +17,16 @@
       <change beforePath="$PROJECT_DIR$/resources/views/public/checkout-page.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/checkout-page.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/public/payment.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/public/payment.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_28_175230_create_roles_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_14_175230_create_roles_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_29_115101_create_categories_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_15_115101_create_categories_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_30_104253_create_authors_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_15_104253_create_authors_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_11_30_110302_create_books_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_20_110302_create_books_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_002111_create_orders_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_21_002111_create_orders_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_002233_create_order_details_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_21_002233_create_order_details_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_10_011530_create_shipping_addresses_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_22_011530_create_shipping_addresses_table.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2019_12_11_022054_create_reviews_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2021_12_22_022054_create_reviews_table.php" afterDir="false" />
+>>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -228,7 +239,13 @@
       <workItem from="1653042308613" duration="3390000" />
       <workItem from="1653114505794" duration="1505000" />
       <workItem from="1655137475708" duration="27000" />
+<<<<<<< Updated upstream
       <workItem from="1655137615960" duration="15357000" />
+=======
+      <workItem from="1655137615960" duration="15435000" />
+      <workItem from="1655442264496" duration="1641000" />
+      <workItem from="1656766332560" duration="304000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
